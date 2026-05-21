@@ -5,8 +5,8 @@ return {
   config = function()
     require("catppuccin").setup {
       -- latte / mocha / frappe /macchiato
-      flavour = "macchiato",
-      transparent_background = true,
+      flavour = "mocha",
+      transparent_background = false,
       no_italic = false, -- Force no italic
       no_bold = false, -- Force no bold
       no_underline = false, -- Force no underline
@@ -43,6 +43,17 @@ return {
           },
         },
       },
+      custom_highlights = function(colors)
+        return {
+          -- Change the visual selection color here (e.g., surface1, surface2, overlay0)
+
+          -- Matches VS Code tokenColorCustomizations for 'variable'
+          ["@variable"] = { fg = "#ff9c83", style = { "italic" } },
+          Identifier = { fg = "#ff9c83", style = { "italic" } },
+       
+  
+        }
+      end,
     }
     vim.cmd.colorscheme "catppuccin"
   end,
